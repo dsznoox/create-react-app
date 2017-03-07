@@ -16,6 +16,10 @@ var paths = require('./paths');
 var protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 var host = process.env.HOST || 'localhost';
 
+var key = process.env.SSL_KEY || false;
+var cert = process.env.SSL_CERT || false;
+var ca = process.env.SSL_CA || false;
+
 module.exports = {
   // Enable gzip compression of generated files.
   compress: true,
@@ -60,4 +64,7 @@ module.exports = {
   https: protocol === 'https',
   host: host,
   overlay: false,
+  key: key,
+  cert: cert,
+  ca: ca
 };
